@@ -1,3 +1,12 @@
 name: Settlements
+version: 1.0
+description: Settlements
 main: broseidon4.Settlements
-version: 1
+commands:
+    settlements:
+        description: asdf
+        permission: command.settlements
+permissions:
+  command.settlements:
+    description: settlements.
+    default: op
