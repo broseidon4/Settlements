@@ -107,7 +107,7 @@ public final class Settlements extends JavaPlugin {
 					Chunk newChunk = ((Player) sender).getLocation().getChunk();
 					
 					try {
-						 //THIS GETS THE SETTLEMENT FOLDER, NOT CHUNKS.YML
+						
 						System.out.println("plugins/Settlements/"+args[1] + "/chunks.yml"); //debug shit 
 						FileWriter w = new FileWriter("plugins/Settlements/"+args[1] + "/chunks.yml", true);
 						BufferedWriter writer = new BufferedWriter(w);
@@ -133,7 +133,7 @@ public final class Settlements extends JavaPlugin {
 				}
 				
 				else {
-					 //THIS GETS THE SETTLEMENT FOLDER, NOT CHUNKS.YML
+					 
 					try {
 						
 						System.out.println("plugins/Settlements/"+args[2] + "/players.yml"); //debug
@@ -141,7 +141,8 @@ public final class Settlements extends JavaPlugin {
 						BufferedWriter writer = new BufferedWriter(w);
 						writer.append(args[1]+"\n");
 						writer.close();
-						
+						System.out.println("Player "+ args[1] + " has been added to the settlement "+ args[2]);
+						sender.sendMessage(args[1] + " has been added to the settlement "+ args[2]);
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						e.printStackTrace();
