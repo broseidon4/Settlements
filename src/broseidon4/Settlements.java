@@ -105,7 +105,27 @@ public final class Settlements extends JavaPlugin {
 					sender.sendMessage(ChatColor.RED + "That settlement doesn't exist!");
 				} else { 
 					Chunk newChunk = ((Player) sender).getLocation().getChunk();
-					
+					File chunks = new File("plugins/Settlements/"+args[1]+"/chunks.yml");
+					File players = new File("plugins/Settlements/"+args[1]+"/players.yml");
+					if (!chunks.exists()) {    //if the settlement doesnt exist (name available)
+						try {
+							chunks.createNewFile();
+							updateList();
+							System.out.println("A chunks file for the settlement, "+args[1]+" has been created!");
+							sender.sendMessage(ChatColor.YELLOW + "The settlement " + args[1] + " has been created!");
+							
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					if (!players.exists()) {
+						try {
+							players.createNewFile();
+							updateList();
+							System.out.println("A players file for the settlement, "+args[1]+" has been created!");
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					try {
 						
 						System.out.println("plugins/Settlements/"+args[1] + "/chunks.yml"); //debug shit 
@@ -133,7 +153,26 @@ public final class Settlements extends JavaPlugin {
 				}
 				
 				else {
-					 
+
+					if (!chunks.exists()) {    //if the settlement doesnt exist (name available)
+						try {
+							chunks.createNewFile();
+							updateList();
+							System.out.println("A chunks file for the settlement, "+args[1]+" has been created!");
+							sender.sendMessage(ChatColor.YELLOW + "The settlement " + args[1] + " has been created!");
+							
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+					if (!players.exists()) {
+						try {
+							players.createNewFile();
+							updateList();
+							System.out.println("A players file for the settlement, "+args[1]+" has been created!");
+						} catch (IOException e) {
+							e.printStackTrace();
+						}
 					try {
 						
 						System.out.println("plugins/Settlements/"+args[2] + "/players.yml"); //debug
@@ -148,6 +187,8 @@ public final class Settlements extends JavaPlugin {
 						e.printStackTrace();
 					}
 				}
+			}
+			}
 				
 			}
 		}
@@ -156,7 +197,8 @@ public final class Settlements extends JavaPlugin {
 		
 		
 		return true;
-	}
+			}
 	
-
+		}
+	}
 }
